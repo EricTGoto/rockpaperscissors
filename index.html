@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<script>
+    'use strict';
+    function computerPlay(){
+        let randomNumber= Math.floor(Math.random()*2+1);
+
+        switch(randomNumber){
+            case 1:
+                return "Rock";
+                break;
+            case 2:
+                return "Paper";
+                break;
+            case 3:
+                return "Scissors";
+        }
+    }
+
+    function singleRound(playerSelection,computerSelection){
+        let playerSelection=playerSelection.toLowerCase();
+        let computerSelection=computerSelection.toLowerCase();
+
+        if (playerSelection==computerSelection){
+            return `Tie both of you played ${computerSelection}`
+        } else if (playerSelection=="rock" && computerSelection=="scissors"){
+            return "You win. Rock beats scissors";
+        } else if (playerSelection=="rock" && computerSelection=="paper"){
+            return "You lose. Paper beats Rock";
+        } else if (playerSelection=="paper" && computerSelection=="rock"){
+            return "You win. Paper beats rock";
+        } else if (playerSelection=="paper" && computerSelection=="scissors"){
+            return "You lose. Scissors beats rock";
+        } else if (playerSelection=="scissors" && computerSelection=="rock"){
+            return "You lose. Rock beats scissors";
+        } else if (playerSelection=="scissors" && computerSelection=="paper"){
+            return "You win. Scissors beats paper";
+        }
+
+    }
+
+    function game(){
+        let win=0;
+        for (let k=0; k<5; k++){
+            let playerSelection=prompt("What is your choice?");
+            let result=singleRound(playerSelection,computerPlay());
+            console.log(result);
+            if (result.indexOf("win")>-1){
+                winner+=1;
+            }
+        }
+        if (win>2){
+            console.log("You won overall!");
+        }else{
+            console.log("You lost overall");
+        }
+    }
+</script>
+</html>
