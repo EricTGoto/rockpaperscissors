@@ -106,7 +106,7 @@
         let computerSelection=computerPlay().toLowerCase();
 
         if (playerSelection==computerSelection){
-            divResult.textContent= `Tie both of you played ${computerSelection}
+            divResult.textContent= `Tie. Both of you played ${computerSelection}.
             Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="rock" && computerSelection=="scissors"){
             userScore++;
