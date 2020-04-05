@@ -8,6 +8,8 @@
 
 <script>
     'use strict';
+    let computerScore=0;
+    let userScore=0;
 
     const htmlElement=document.querySelector('html');
     htmlElement.style.height="100%";
@@ -35,34 +37,42 @@
     buttonRock.textContent="Rock";
     buttonRock.style.width='200px';
     buttonRock.style.height="200px";
+    buttonRock.style.marginRight="5px";
     buttonRock.addEventListener('click',()=> singleRound('rock'));
 
     const buttonPaper=document.createElement('button');
     buttonPaper.textContent="Paper";
     buttonPaper.style.width='200px';
     buttonPaper.style.height="200px";
+    buttonPaper.style.marginRight="5px";
     buttonPaper.addEventListener('click',()=> singleRound('paper'));
 
     const buttonScissors=document.createElement('button');
     buttonScissors.textContent="Scissors";
     buttonScissors.style.width='200px';
     buttonScissors.style.height="200px";
+    buttonScissors.style.marginRight="5px";
     buttonScissors.addEventListener('click',()=> singleRound('scissors'));
 
-    
     divContainer.appendChild(buttonRock);
     divContainer.appendChild(buttonPaper);
     divContainer.appendChild(buttonScissors);
     bodyElement.appendChild(divContainer);
     bodyElement.appendChild(divResult);
 
-    
+    /*const buttons=document.querySelectorAll('button');
+    buttons.forEach((button)=>{
+        button.style.borderWidth="2px";
+        button.style.borderColor="rgb(217,217,217)";
+        console.log(button);
+    });
+    */
+
     function computerPlay(){
         let randomNumber= Math.floor(Math.random()*3+1);
         console.log(randomNumber);
         switch(randomNumber){
             case 1:
-                
                 buttonRock.style.backgroundImage="url('images/robot.png')";
                 buttonRock.style.backgroundSize="50px 50px";
                 buttonRock.style.backgroundRepeat="no-repeat";
@@ -96,19 +106,32 @@
         let computerSelection=computerPlay().toLowerCase();
 
         if (playerSelection==computerSelection){
-            divResult.textContent= `Tie both of you played ${computerSelection}`;
+            divResult.textContent= `Tie both of you played ${computerSelection}
+            Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="rock" && computerSelection=="scissors"){
-            divResult.textContent= "You win. Rock beats scissors";
+            userScore++;
+            divResult.textContent= `You win. Rock beats scissors.
+            Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="rock" && computerSelection=="paper"){
-            divResult.textContent= "You lose. Paper beats Rock";
+            computerScore++;
+            divResult.textContent= `You lose. Paper beats Rock.
+            Score is: User:${userScore} Computer:${computerScore}`;           
         } else if (playerSelection=="paper" && computerSelection=="rock"){
-            divResult.textContent= "You win. Paper beats rock";
+            userScore++;
+            divResult.textContent= `You win. Paper beats rock.
+            Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="paper" && computerSelection=="scissors"){
-            divResult.textContent= "You lose. Scissors beats paper";
+            computerScore++;
+            divResult.textContent= `You lose. Scissors beats paper.
+            Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="scissors" && computerSelection=="rock"){
-            divResult.textContent= "You lose. Rock beats scissors";
+            computerScore++;
+            divResult.textContent= `You lose. Rock beats scissors.
+            Score is: User:${userScore} Computer:${computerScore}`;
         } else if (playerSelection=="scissors" && computerSelection=="paper"){
-            divResult.textContent= "You win. Scissors beats paper";
+            userScore++;
+            divResult.textContent= `You win. Scissors beats paper.
+            Score is: User:${userScore} Computer:${computerScore}`;
         }
 
     }
