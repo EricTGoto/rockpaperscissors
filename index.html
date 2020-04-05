@@ -9,14 +9,27 @@
 <script>
     'use strict';
 
+    const htmlElement=document.querySelector('html');
+    htmlElement.style.height="100%";
+
     const bodyElement=document.querySelector('body');
+    bodyElement.style.height="100%";
+    bodyElement.style.display="flex";
+    bodyElement.style.flexDirection="column";
+    bodyElement.style.alignItems="center";
+    bodyElement.style.justifyContent="center";
+
 
     const divContainer=document.createElement('div');
     divContainer.style.display="flex";
-    divContainer.style.justifyContent="center";
     divContainer.style.alignItems="center";
+    divContainer.style.justifyContent="center";
+    
 
     const divResult=document.createElement('div');
+    divResult.style.display="flex";
+    divResult.style.justifyContent="center";
+    divResult.style.paddingTop="5px";
 
     const buttonRock=document.createElement('button');
     buttonRock.textContent="Rock";
@@ -36,10 +49,11 @@
     buttonScissors.style.height="200px";
     buttonScissors.addEventListener('click',()=> singleRound('scissors'));
 
-    bodyElement.appendChild(divContainer);
+    
     divContainer.appendChild(buttonRock);
     divContainer.appendChild(buttonPaper);
     divContainer.appendChild(buttonScissors);
+    bodyElement.appendChild(divContainer);
     bodyElement.appendChild(divResult);
 
     
@@ -48,12 +62,31 @@
         console.log(randomNumber);
         switch(randomNumber){
             case 1:
-                return "Rock";
+                
+                buttonRock.style.backgroundImage="url('images/robot.png')";
+                buttonRock.style.backgroundSize="50px 50px";
+                buttonRock.style.backgroundRepeat="no-repeat";
+                buttonRock.style.backgroundPosition="75px 30px";
+                buttonPaper.style.backgroundImage="none";
+                buttonScissors.style.backgroundImage="none";
+                return "Rock"; 
                 break;
             case 2:
+                buttonPaper.style.backgroundImage="url('images/robot.png')";
+                buttonPaper.style.backgroundSize="50px 50px";
+                buttonPaper.style.backgroundRepeat="no-repeat";
+                buttonPaper.style.backgroundPosition="75px 30px";
+                buttonRock.style.backgroundImage="none";
+                buttonScissors.style.backgroundImage="none";
                 return "Paper";
                 break;
             case 3:
+                buttonScissors.style.backgroundImage="url('images/robot.png')";
+                buttonScissors.style.backgroundSize="50px 50px";
+                buttonScissors.style.backgroundRepeat="no-repeat";
+                buttonScissors.style.backgroundPosition="75px 30px";
+                buttonPaper.style.backgroundImage="none";
+                buttonRock.style.backgroundImage="none";
                 return "Scissors";
         }
     }
