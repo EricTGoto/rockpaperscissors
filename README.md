@@ -1,1 +1,1 @@
-This is a simple rock paper scissors implementation with javascript to practice DOM.
+This is a simple rock paper scissors implementation with javascript to practice DOM manipulation.
