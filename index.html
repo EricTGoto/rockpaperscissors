@@ -1,11 +1,42 @@
 <!DOCTYPE html>
+<html></html>
 <head>
     <meta charset="utf-8"/>
 </head>
-<html>
+<body>
+</body>
 
 <script>
     'use strict';
+
+    const bodyElement=document.querySelector('body');
+
+    const divContainer=document.createElement('div');
+    divContainer.style.display="flex";
+    divContainer.style.justifyContent="center";
+    divContainer.style.alignItems="center";
+
+    const buttonRock=document.createElement('button');
+    buttonRock.textContent="Rock";
+    buttonRock.style.width='200px';
+    buttonRock.style.height="200px";
+
+    const buttonPaper=document.createElement('button');
+    buttonPaper.textContent="Paper";
+    buttonPaper.style.width='200px';
+    buttonPaper.style.height="200px";
+
+    const buttonScissors=document.createElement('button');
+    buttonScissors.textContent="Scissors";
+    buttonScissors.style.width='200px';
+    buttonScissors.style.height="200px";
+
+    bodyElement.appendChild(divContainer);
+    divContainer.appendChild(buttonRock);
+    divContainer.appendChild(buttonPaper);
+    divContainer.appendChild(buttonScissors);
+
+    
     function computerPlay(){
         let randomNumber= Math.floor(Math.random()*2+1);
 
