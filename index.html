@@ -22,17 +22,19 @@
     buttonRock.textContent="Rock";
     buttonRock.style.width='200px';
     buttonRock.style.height="200px";
-    buttonRock.addEventListener('click',singleRound('rock'));
+    buttonRock.addEventListener('click',()=> singleRound('rock'));
 
     const buttonPaper=document.createElement('button');
     buttonPaper.textContent="Paper";
     buttonPaper.style.width='200px';
     buttonPaper.style.height="200px";
+    buttonPaper.addEventListener('click',()=> singleRound('paper'));
 
     const buttonScissors=document.createElement('button');
     buttonScissors.textContent="Scissors";
     buttonScissors.style.width='200px';
     buttonScissors.style.height="200px";
+    buttonScissors.addEventListener('click',()=> singleRound('scissors'));
 
     bodyElement.appendChild(divContainer);
     divContainer.appendChild(buttonRock);
@@ -69,7 +71,7 @@
         } else if (playerSelection=="paper" && computerSelection=="rock"){
             divResult.textContent= "You win. Paper beats rock";
         } else if (playerSelection=="paper" && computerSelection=="scissors"){
-            divResult.textContent= "You lose. Scissors beats rock";
+            divResult.textContent= "You lose. Scissors beats paper";
         } else if (playerSelection=="scissors" && computerSelection=="rock"){
             divResult.textContent= "You lose. Rock beats scissors";
         } else if (playerSelection=="scissors" && computerSelection=="paper"){
